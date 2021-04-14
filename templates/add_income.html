@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Income
+{% endblock %}
+
+{% block main %}
+
+    <form action="/add_income" method="post">
+        <select class="custom form-group form-control" type="text" name="income">
+            <option class="zero">Income</option>
+                <options>
+                    <option>Salary</option>
+                    <option>Other</option>
+                </options>
+        </select>
+        <div class="form-group">
+            <input class="form-control" type="text" name="amount" placeholder="Amount [$]"><br>
+        </div>
+        <button class="btn btn-primary" type="submit">Add</button>
+    </form>
+
+{% endblock %}

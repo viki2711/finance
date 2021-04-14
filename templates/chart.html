@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Chart
+{% endblock %}
+
+{% block main %}
+
+    <div class="continer">
+        <canvas id="chart" width="300" height="150"></canvas>
+    </div>
+
+    <script>
+        let chart = document.getElementById("chart").getContext("2d");
+        let myChart = new Chart(chart, {
+            type: "horizontalBar", //bar, horizontalBar, pie, doughnut, line, radar, polarArea
+            data: {
+                labels: [{% for label in labels %}"{{label}}",{% endfor %}],
+                datasets: [{
+                    data: [{% for value in values %}{{value}},{% endfor %}],
+                    backgroundColor: [{% for color in colors %}"{{color}}",{% endfor %}],
+                    borderWidth: 1,
+                    borderColor: "#FDFEFE",
+                    hoverBorderWidth: 5,
+                    hoverBorderColor: "#F7F9F9"
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: "{{title}}",
+                    fontSize: 20
+                },
+                legend: {
+                    display: false,
+                    position: "top",
+                    labels: {
+                        fontColor: "#000"
+                    }
+                }
+            }
+        });
+    </script>
+{% endblock %}
+

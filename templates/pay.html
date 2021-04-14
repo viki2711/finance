@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Pay
+{% endblock %}
+
+{% block main %}
+    <form action="/pay" method="post">
+        <select class="custom form-group form-control" type="text" name="payment">
+            <option class="zero">Payment</option>
+                <options>
+                    <option>Rent</option>
+                    <option>Bills</option>
+                    <option>Groceries</option>
+                    <option>Pets</option>
+                    <option>Shopping</option>
+                    <option>Other</option>
+                </options>
+        </select>
+        <div class="form-group">
+            <input class="form-control" type="text" name="amount" placeholder="Amount [$]"><br>
+        </div>
+        <button class="btn btn-primary" type="submit">Pay</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block table %}
+    <table class="center table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Month/Year</th>
+                <th scope="col">Salary</th>
+                <th scope="col">Income</th>
+                <th scope="col">Rent</th>
+                <th scope="col">Bills</th>
+                <th scope="col">Groceries</th>
+                <th scope="col">Pets</th>
+                <th scope="col">Shopping</th>
+                <th scope="col">Other</th>
+                <th scope="col">TOTAL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+                <tr>
+                    <td> {{row["month_year"]}} </td>
+                    <td> {{row["salary"]}} </td>
+                    <td> {{row["other_income"]}} </td>
+                    <td> {{row["rent"]}} </td>
+                    <td> {{row["bills"]}} </td>
+                    <td> {{row["groceries"]}} </td>
+                    <td> {{row["pets"]}} </td>
+                    <td> {{row["shopping"]}} </td>
+                    <td> {{row["other_expences"]}} </td>
+                    <td> ${{"%.2f"|format(row["total"])}} </td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <th>Balance</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <th> ${{"%.2f"|format(total_cash)}} </th>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
